@@ -1,0 +1,8 @@
+disable_alarms:
+  name: Disable Alarms
+  entities:
+    - input_boolean.disable_alarm
+    - input_boolean.disable_alarm_lights
+    - input_boolean.disable_alarm_voice
+    - input_boolean.disable_alarm_notification
+    - input_boolean.disable_alarm_camera

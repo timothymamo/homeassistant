@@ -1,0 +1,1 @@
+check_vpn: /bin/bash /config/shell_commands/check_vpn.sh {{ ha_token }} {{ vpn_ip }}

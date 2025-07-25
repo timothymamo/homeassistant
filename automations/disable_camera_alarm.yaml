@@ -1,0 +1,9 @@
+- id: disable_camera_alarm
+  alias: 'Disable Camera Alarm'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.disable_alarm_camera
+      to: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.disarm_camera

@@ -1,0 +1,37 @@
+# Hide multiple devices being discovered from AsusWRT
+device_tracker.b0_ac_d2_61_1a_66:
+  hidden: true
+device_tracker.b8_27_eb_26_46_11:
+  hidden: true
+device_tracker.bedroom_dot:
+  hidden: true
+device_tracker.kitchen_dot:
+  hidden: true
+device_tracker.nest:
+  hidden: true
+device_tracker.philips_hue:
+  hidden: true
+device_tracker.playstation4:
+  hidden: true
+device_tracker.raspberry_pi4:
+  hidden: true
+device_tracker.raspberry_pi_3b:
+  hidden: true
+device_tracker.rubys_ish_macbook:
+  hidden: true
+device_tracker.sony_tv:
+  hidden: true
+device_tracker.tim_work_laptop:
+  hidden: true
+device_tracker.tims_desktop:
+  hidden: true
+device_tracker.rubys_galaxy_s7:
+  hidden: true
+device_tracker.tims_galaxy_s7:
+  hidden: true
+sensor.hacs:
+  hidden: true
+binary_sensor.updater:
+  hidden: true
+binary_sensor.remote_ui:
+  hidden: true

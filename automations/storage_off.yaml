@@ -1,0 +1,10 @@
+- id: storage_off_3_min_turn_off_hallway_light
+  alias: 'Storage OFF -3 min - Turn OFF Hallway Light'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.storage
+      to: 'off'
+      for:
+        minutes: 3
+  action:
+    - service: script.turn_off_hallway

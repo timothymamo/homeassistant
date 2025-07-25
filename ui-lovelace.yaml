@@ -1,0 +1,12 @@
+title: Main Lovelace
+views:
+  - !include /config/lovelace/views/01_view_home.yaml
+  - !include /config/lovelace/views/02_view_bedroom.yaml
+  - !include /config/lovelace/views/03_view_dining.yaml
+  - !include /config/lovelace/views/04_view_kitchen.yaml
+  - !include /config/lovelace/views/05_view_living.yaml
+  - !include /config/lovelace/views/06_view_hallway.yaml
+  - !include /config/lovelace/views/07_view_entrance.yaml
+  - !include /config/lovelace/views/08_view_presence.yaml
+  - !include /config/lovelace/views/09_view_sensors.yaml
+  - !include /config/lovelace/views/10_view_automations.yaml

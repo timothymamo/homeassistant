@@ -1,0 +1,33 @@
+purge_keep_days: 2
+exclude:
+  domains:
+    - automation
+    - device_tracker
+    - group
+    - scene
+    - script
+    - switch
+    - zone
+  entities:
+    - sensor.hacs
+    - sensor.time
+    - sun.sun
+    - weather.home
+    - binary_sensor.vibration_2
+    - light.rwl021_6
+    - media_player.everywhere
+    - media_player.this_device
+    - media_player.timothy_s_alexa_apps
+    - media_player.timothy_s_echosim_beta
+    - media_player.tv
+    - sensor.bedroom_dot_next_alarm
+    - sensor.bedroom_dot_next_reminder
+    - sensor.bedroom_dot_next_timer
+    - sensor.kitchen_dot_next_alarm
+    - sensor.kitchen_dot_next_reminder
+    - sensor.kitchen_dot_next_timer
+    - sensor.window_door_sensor_entrance_battery_level
+include:
+  entities:
+    - device_tracker.ruby_ha_app
+    - device_tracker.tim_ha_app

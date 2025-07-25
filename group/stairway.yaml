@@ -1,0 +1,11 @@
+stairway:
+  name: Stairway
+  entities:
+    - sensor.motion_sensor_bottom_stairs_illuminance
+    - sensor.motion_sensor_top_stairs_illuminance
+    - sensor.motion_sensor_bottom_stairs_temperature
+    - sensor.motion_sensor_top_stairs_temperature
+    - binary_sensor.motion_sensor_bottom_stairs_occupancy
+    - binary_sensor.motion_sensor_top_stairs_occupancy
+    - input_boolean.bottom_stairs
+    - input_boolean.top_stairs

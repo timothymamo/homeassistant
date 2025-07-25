@@ -1,0 +1,16 @@
+title: Kitchen
+icon: mdi:fridge-outline
+path: kitchen
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Kitchen
+    group: group.kitchen
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Kitchen Sensors
+    group: group.kitchen_sensors

@@ -1,0 +1,24 @@
+- id: bottom_stairs_on_turn_on_stairs_and_bedroom_lights
+  alias: 'Bottom Stairs ON - Turn On Stairs and Bedroom Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bottom_stairs
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.asleep
+        state: 'off'
+  action:
+    - service: script.turn_on_stairs
+    - condition: state
+      entity_id: light.bedroom
+      state: 'off'
+    - service: script.turn_on_bedroom

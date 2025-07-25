@@ -1,0 +1,8 @@
+- id: hue_dimmer_on_hallway_on
+  alias: 'Hue Dimmer ON - Hallway ON'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.hue_dimmer
+      to: 'on'
+  action:
+    - service: script.turn_on_hallway

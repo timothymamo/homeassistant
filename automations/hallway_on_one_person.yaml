@@ -1,0 +1,15 @@
+- id: hallway_on_one_person_turn_off_dining_bedroom_living_kitchen_lights
+  alias: 'Hallway ON - One Person - Turn OFF Dining, Bedroom, Living, Kitchen Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.hallway
+      to: 'on'
+  condition:
+    - condition:  state
+      entity_id: input_boolean.one_person
+      state: 'on'
+  action:
+    - service: script.turn_off_dining
+    - service: script.turn_off_bedroom
+    - service: script.turn_off_living
+    - service: script.turn_off_kitchen

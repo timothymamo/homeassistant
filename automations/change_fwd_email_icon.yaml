@@ -1,0 +1,27 @@
+- id: change_forwarding_email_icon
+  alias: 'Change Forwarding Email Icon'
+  trigger:
+    - platform: state
+      entity_id: sensor.curl_resp
+  condition:
+    - condition: template
+      value_template: "{{ not is_state('sensor.curl_resp', '200') }}"
+  action:
+    - delay:
+        seconds: 10
+    - service: rest_command.ha_post
+      data_template:
+        ha_token: !secret ha_token
+        entity: "sensor.curl_resp"
+        payload: '{"state": "200","attributes": {"friendly_name":"Gandi Curl Response"}}'
+    - service: rest_command.ha_post
+      data_template:
+        ha_token: !secret ha_token
+        entity: "input_text.create_fwd_email"
+        payload: '{"state": "","attributes": {"editable":"false", "min":"0", "max":"100", "pattern":"^[A-Za-z0-9][\\w.-]*[A-Za-z0-9]$", "mode":"text", "friendly_name":"Create Forwarding Email"}}'
+    - condition: state
+      entity_id: input_boolean.fwd_email_both
+      state: 'on'
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.fwd_email_both

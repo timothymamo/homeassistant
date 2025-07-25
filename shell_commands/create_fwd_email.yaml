@@ -1,0 +1,1 @@
+create_fwd_email: /bin/bash /config/shell_commands/create_fwd_email.sh {{ domain }} {{ api_key }} {{ email }} {{ dest_email }} {{ ha_token }}

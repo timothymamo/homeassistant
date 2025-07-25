@@ -1,0 +1,10 @@
+title: Dining
+icon: mdi:table-chair
+path: dining
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Dining Room
+    group: group.dining_room

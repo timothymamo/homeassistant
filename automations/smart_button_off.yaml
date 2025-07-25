@@ -1,0 +1,8 @@
+- id: smart_button_off_clothes_bedroom_off
+  alias: 'Smart Button OFF - Clothes Bedroom OFF'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.hue_smart_button
+      to: 'off'
+  action:
+    - service: script.turn_off_clothes_bedroom

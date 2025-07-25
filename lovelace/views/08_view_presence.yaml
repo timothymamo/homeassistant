@@ -1,0 +1,16 @@
+title: Automation
+icon: mdi:location-enter
+path: presence
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Presence
+    group: group.presence
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Presence Booleans
+    group: group.presence_booleans

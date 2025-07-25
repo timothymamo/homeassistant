@@ -1,0 +1,6 @@
+arm_cameras:
+  sequence:
+    - alias: Arm Camera
+      service: alarm_control_panel.alarm_arm_away
+      target:
+        entity_id: alarm_control_panel.blink_home

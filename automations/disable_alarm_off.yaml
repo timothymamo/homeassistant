@@ -1,0 +1,19 @@
+- id: disable_alarm_off
+  alias: 'Enable Alarms'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.disable_alarm
+      to: 'off'
+  action:
+    - service: automation.turn_on
+      entity_id: 
+        - automation.warn_when_water_sensor_is_triggered
+        - automation.trigger_alarm_when_unauthorised_entrance_is_triggered
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.disable_alarm_camera
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.disable_alarm_voice
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.disable_alarm_lights
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.disable_alarm_notification

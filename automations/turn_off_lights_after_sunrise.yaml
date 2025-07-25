@@ -1,0 +1,11 @@
+- id: turn_off_all_lights_1_hour_after_sunrise
+  alias: 'Turn off all lights 1 hour after sunrise'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.daylight
+      to: 'on'
+      for:
+        hours: 1
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.all_lights

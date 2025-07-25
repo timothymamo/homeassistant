@@ -1,0 +1,35 @@
+- id: no_one_home_on_turn_on_cleaner
+  alias: 'No One Home ON - Turn ON Cleaner'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.no_one_home
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - wed
+      - condition: template
+        value_template: "{{ (as_timestamp(now()) | timestamp_custom ('%U') | int % 2) == 1 }}" # Set to 1 or 0
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.cleaner
+
+- id: time_17_30_cleaner_on_turn_off_cleaner
+  alias: 'Time 17:30 - Cleaner ON - Turn OFF Cleaner'
+  trigger:
+    platform: time
+    at: '17:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - wed
+      - condition: state
+        entity_id: input_boolean.cleaner
+        state: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.cleaner

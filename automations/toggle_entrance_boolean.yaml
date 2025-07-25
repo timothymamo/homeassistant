@@ -1,0 +1,25 @@
+- id: binary_sensor_entrance_on
+  alias: 'Binary Sensor Entrance ON'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.magnet_sensor_entrance
+      to: 'on'
+  condition: 
+    - condition: template
+      value_template: '{{ ( (as_timestamp(states.binary_sensor.magnet_sensor_entrance.last_changed) 
+      - (as_timestamp(states.binary_sensor.motion_sensor_hallway_occupancy.last_changed))) > 0 ) }}'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.entrance
+
+- id: binary_sensor_entrance_off
+  alias: 'Binary Sensor Entrance OFF'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.magnet_sensor_entrance
+      to: 'off'
+      for:
+        seconds: 30
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.entrance

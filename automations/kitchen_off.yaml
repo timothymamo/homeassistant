@@ -1,0 +1,10 @@
+- id: kitchen_off_turn_off_kitchen_lights
+  alias: 'Kitchen OFF - Turn OFF Kitchen Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.kitchen
+      to: 'off'
+      for:
+        minutes: 2
+  action:
+    - service: script.turn_off_kitchen

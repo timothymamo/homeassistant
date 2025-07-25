@@ -1,0 +1,70 @@
+- id: trigger_alarm_when_unauthorised_entrance_is_triggered
+  alias: 'Trigger alarm when unauthorised entrance is triggered'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.entrance
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.disable_alarm
+        state: 'off'
+  action:
+    - service: notify.mobile_app_tim_mobile
+      data:
+        message: "request_location_update"
+    - service: notify.mobile_app_ruby_mobile
+      data:
+        message: "request_location_update"
+    - alias: Delay for 1 seconds
+      delay:
+        seconds: 1
+    - condition: state
+      entity_id: input_boolean.no_one_home
+      state: 'on'
+    - alias: Send Notification
+      service: script.alarm_notification
+      data:
+        title: "!!! ENTRANCE HAS BEEN TRIGGERED !!!"
+        message: "!!! The front door has been opened !!!"
+    - alias: Enable Alarm Lights
+      service: script.alarm_lights
+    - alias: Cameras Loop
+      service: script.cameras_arm_disarm_loop
+    - alias: Delay for 5 seconds
+      delay:
+        seconds: 5
+    - alias: Disable Alarm Lights
+      service: homeassistant.turn_on
+      entity_id: input_boolean.disable_alarm_lights
+    - delay:
+        seconds: 5
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.disable_alarm_lights
+    - alias: Delay for 25 seconds
+      delay:
+        seconds: 25
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.no_one_home
+          state: 'on'
+        - condition: state
+          entity_id: input_boolean.disable_alarm
+          state: 'off'
+    - alias: Enable Alarm Lights
+      service: script.alarm_lights
+    - alias: Enable Unauthorised Entrance Voice Alarm
+      service: script.alarm_voice
+      data:
+        message: "Unauthorised entrance has been detected. Video recording is enabled. The home owner and police have been notified. LEAVE NOW!!"
+    - alias: Delay for 5 minutes
+      delay:
+        minutes: 5
+    - alias: Disable Alarm
+      service: homeassistant.turn_on
+      entity_id: input_boolean.disable_alarm

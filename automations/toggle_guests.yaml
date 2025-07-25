@@ -1,0 +1,21 @@
+- id: guests_on
+  alias: 'Guests ON'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.guests
+      to: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.no_one_home
+
+- id: guests_off
+  alias: 'Guests OFF'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.guests
+      to: 'off'
+  action:
+    - condition: template
+      value_template: '{% if not is_state("person.ruby", "home") and not is_state("person.tim", "home") %}true{% endif %}'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.no_one_home

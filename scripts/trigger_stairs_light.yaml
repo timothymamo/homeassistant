@@ -1,0 +1,28 @@
+turn_on_stairs:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.stairs_light_override
+      state: 'off'
+    - service: light.turn_on
+      entity_id: light.stairs
+      data: 
+        brightness: >
+          {% if (as_timestamp(now(), 0) | timestamp_custom ('%H') | int ) < 9 and (states.light.bedroom.state == "off") %}
+            100
+          {% else %}
+            255
+          {% endif %}
+        rgb_color: "{{ color_temp | default([255, 241, 224]) }}" # 353
+        transition: "{{ transition | default(0.4) }}"
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.hue_smart_button_2
+
+turn_off_stairs:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.stairs_light_override
+      state: 'off'
+    - service: light.turn_off
+      entity_id: light.stairs
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.hue_smart_button_2

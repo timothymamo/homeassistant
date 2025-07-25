@@ -1,0 +1,5 @@
+create_fwd_email:
+  name: "Create Forwarding Email"
+  mode: text
+  pattern: '^[A-Za-z0-9][\w.-]*[A-Za-z0-9]$'
+  initial: ""

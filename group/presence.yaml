@@ -1,0 +1,20 @@
+presence:
+  name: Presence
+  entities:
+    - input_boolean.override_presence
+    - input_boolean.no_one_home
+    - input_boolean.guests
+    - input_boolean.asleep
+    - input_boolean.cleaner
+    - input_boolean.disable_alarm
+
+presence_booleans:
+  name: Presence Booleans
+  entities:
+    - input_boolean.bottom_stairs
+    - input_boolean.top_stairs
+    - input_boolean.entrance
+    - input_boolean.hallway
+    - input_boolean.kitchen
+    - input_boolean.storage
+    - input_boolean.tim_in_bed

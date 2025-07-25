@@ -1,0 +1,40 @@
+filter:
+  include_entities:
+    - group.bedroom
+    - group.all_lights
+    - group.entrance
+    - group.hallway
+    - group.kitchen
+    - group.living_room
+    - script.realfeel_notification
+  include_domains:
+    - light
+    - media_player
+    - scene
+  exclude_entities:
+    - group.alarm_clock
+    - group.lux_sensors
+    - group.motion_sensors
+    - group.stairway
+    - group.temp_sensors
+    - input_datetime.wakeup_time
+    - input_number.wakeup_transition
+    - light.hallway
+    - light.dining_1
+    - light.dining_2
+    - light.rwl021_6
+    - media_player.tv
+    - media_player.everywhere
+    - light.rwl021_6_2
+    - media_player.timothy_s_alexa_apps
+    - media_player.timothy_s_echosim_beta
+  exclude_domains:
+    - automation
+    - binary_sensor
+    - device_tracker
+    - input_boolean
+    - person
+    - sensor
+    - sun
+    - weather
+    - zone

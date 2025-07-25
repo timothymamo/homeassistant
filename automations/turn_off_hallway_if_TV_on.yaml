@@ -1,0 +1,18 @@
+- id: turn_off_hallway_if_TV_on
+  alias: 'Turn off Hallway if TV is ON'
+  trigger:
+    - platform: state
+      entity_id: light.hallway
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ not is_state('media_player.mybraviatv', 'off') }}"
+  action:
+    - delay:
+        minutes: 10
+    - condition: state
+      entity_id: input_boolean.storage
+      state: 'off'
+    - service: script.turn_off_hallway

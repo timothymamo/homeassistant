@@ -1,0 +1,4 @@
+bottom_stairs_counter:
+  name: "Bottom Stairs Counter"
+  initial: 0
+  icon: mdi:cat

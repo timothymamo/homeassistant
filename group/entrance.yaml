@@ -1,0 +1,10 @@
+entrance:
+  name: Entrance
+  entities:
+    - light.entrance
+
+entrance_sensors:
+  name: Entrance Sensors
+  entities:
+    - binary_sensor.magnet_sensor_entrance
+    - input_boolean.entrance

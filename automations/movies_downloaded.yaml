@@ -1,0 +1,12 @@
+- id: send_notification_movies_downloaded
+  alias: Send Notification Movies Downloaded
+  mode: queued
+  trigger:
+    - platform: state
+      entity_id: sensor.plex_library_movies
+      id: movie
+  action:
+    - service: notify.mobile_app_tim_mobile
+      data_template:
+        title: "Movie Added!"
+        message: 'New movie added - {{state_attr("sensor.plex_library_movies", "last_added_item")}}'

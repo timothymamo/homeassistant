@@ -1,0 +1,11 @@
+- id: turn_off_all_lights_when_everyone_leaves_the_house
+  alias: 'Turn off all lights when everyone leaves the house'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.no_one_home
+      to: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: all
+    - service: homeassistant.turn_off
+      entity_id: media_player.mybraviatv

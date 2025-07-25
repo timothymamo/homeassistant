@@ -1,0 +1,23 @@
+turn_on_clothes_bedroom:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.clothes_bedroom_light_override
+      state: 'off'
+    - service: light.turn_on
+      entity_id: light.clothes_bedroom
+      data_template:
+        brightness: "{{ brightness | default(255) }}"
+        rgb_color: "{{ color_temp | default([255,162, 76]) }}" # 389
+        transition: "{{ transition | default(0.4) }}"
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.hue_smart_button
+
+turn_off_clothes_bedroom:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.clothes_bedroom_light_override
+      state: 'off'
+    - service: light.turn_off
+      entity_id: light.clothes_bedroom
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.hue_smart_button

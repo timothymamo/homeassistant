@@ -1,0 +1,11 @@
+- id: increment_bottom_stairs_counter
+  alias: 'Increment Bottom Stairs Counter'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bottom_stairs
+      to: 'on'
+  action:
+    - delay:
+        seconds: 5
+    - service: counter.increment
+      entity_id: counter.bottom_stairs_counter

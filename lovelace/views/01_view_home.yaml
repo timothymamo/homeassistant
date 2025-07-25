@@ -1,0 +1,307 @@
+title: Home
+icon: mdi:home
+path: home
+badges:
+  - person.ruby
+  - person.tim
+cards:
+  - type: entities
+    entities:
+      - light.dining_room
+      - light.bedroom
+      - light.hallway
+      - light.kitchen
+      - light.lamp
+      - light.entrance
+      - light.stairs
+      - light.clothes_bedroom
+    show_header_toggle: true
+    title: Lights
+
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Light Override
+    group: group.override_lights
+
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Presence
+    group: group.presence
+
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Wake Up Light
+    group: group.alarm_clock
+
+  - type: entities
+    entities:
+      - type: custom:template-entity-row
+        name: "{{ states.sensor.curl_resp.attributes.message }}"
+        condition: "{{ not is_state('sensor.curl_resp', '200')}}"
+      - entity: input_text.create_fwd_email
+        icon: none
+      - type: custom:stack-in-card
+        mode: vertical
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: "custom:paper-buttons-row"
+                buttons:
+                  - entity: sensor.curl_resp
+                    name: "Create Frowarding Email"
+                    tap_action:
+                      action: call-service
+                      service: script.create_fwd_email
+                    state_icons:
+                      "200": "mdi:email-arrow-right-outline"
+                      "201": "mdi:email-check-outline"
+                      "400": "mdi:alert-circle-outline"
+                      "401": "mdi:alert-circle-outline"
+                      "403": "mdi:alert-circle-outline"
+              - type: "custom:paper-buttons-row"
+                buttons:
+                  - entity: input_boolean.fwd_email_both
+                    name: |
+                      {% if is_state("input_boolean.fwd_email_both", "on") %}
+                        Both
+                      {% elif is_state("input_boolean.fwd_email_both", "off") %}
+                        Tim
+                      {% else %}
+                        Unknown
+                      {% endif %}
+                    tap_action:
+                      action: call-service
+                      service: script.toggle_fwd_email_both
+                    state_icons:
+                      "on": "mdi:email-multiple-outline"
+                      "off": "mdi:email-outline"
+
+# Sourcecode by vdbrink.github.io
+# Entities Card Configuration
+  - type: horizontal-stack
+    cards:
+      - type: tile
+        entity: sensor.kleenex_pollen_radar_home_trees
+        name: Hazel
+        grid_options:
+          columns: 3
+          rows: 2
+        vertical: true
+        card_mod:
+          style:
+            ha-tile-icon: >
+              {% set input_name = 'Hazelaar' %} 
+              {% set details = state_attr('sensor.kleenex_pollen_radar_home_trees', 'details') %} 
+              {% set item = details | selectattr('name', 'eq', input_name) | first() %} 
+              {% set level = item.level | default('N/A') %}  
+              {% set color_map = {'low': 'green', 'moderate': 'orange', 'high': 'red', 'very high': 'maroon'} %} 
+              {% set level_color = color_map.get(level, 'gray') %}
+
+              ha-state-icon {
+                conic-gradient({{ level_color }} var(--card-background-color) 0% 100%);
+              }
+
+              ha-tile-icon {
+                --tile-color: {{level_color}};
+              }
+            ha-tile-info$: >
+              {% set input_name = 'Hazelaar' %}  
+              {% set details = state_attr('sensor.kleenex_pollen_radar_home_trees', 'details') %} 
+              {% set item = details | selectattr('name', 'eq', input_name) | first() %}
+
+              .secondary state-display {
+                display: none;
+              }
+
+              .secondary::after {
+                content: "{{ item.value }} ppm";
+                display: block;
+                text-align: center;
+              }
+      - type: tile
+        entity: sensor.kleenex_pollen_radar_home_trees
+        name: Birch
+        grid_options:
+          columns: 3
+          rows: 2
+        vertical: true
+        card_mod:
+          style:
+            ha-tile-icon: >
+              {% set input_name = 'Berk' %} 
+              {% set details = state_attr('sensor.kleenex_pollen_radar_home_trees', 'details') %} 
+              {% set item = details | selectattr('name', 'eq', input_name) | first() %} 
+              {% set level = item.level | default('N/A') %}  
+              {% set color_map = {'low': 'green', 'moderate': 'orange', 'high': 'red', 'very high': 'maroon'} %} 
+              {% set level_color = color_map.get(level, 'gray') %}
+
+              ha-state-icon {
+                conic-gradient({{ level_color }} var(--card-background-color) 0% 100%);
+              }
+
+              ha-tile-icon {
+                --tile-color: {{level_color}};
+              }
+            ha-tile-info$: >
+              {% set input_name = 'Berk' %}  
+              {% set details = state_attr('sensor.kleenex_pollen_radar_home_trees', 'details') %} 
+              {% set item = details | selectattr('name', 'eq', input_name) | first() %}
+
+              .secondary state-display {
+                display: none;
+              }
+
+              .secondary::after {
+                content: "{{ item.value }} ppm";
+                display: block;
+                text-align: center;
+              }
+
+# Sourcecode by vdbrink.github.io
+# Entities Card Configuration
+  - type: vertical-stack
+    cards:
+      - type: heading
+        heading: Pollen in the air
+        heading_style: title
+        card_mod:
+          class: class-section-heading
+        tap_action:
+          action: url
+          url_path: https://hooikoortsradar.nl
+      - type: horizontal-stack
+        cards:
+          - entity: sensor.kleenex_pollen_radar_home_weeds
+            name: Weeds
+            type: tile
+            vertical: true
+            tap_action:
+              action: more-info
+            card_mod:
+              style: |
+                ha-tile-icon {
+                  {% set level = states('sensor.kleenex_pollen_radar_home_weeds_level') %}
+                  {% set color = {'low':'green','moderate':'orange','high':'red','very-high':'maroon'} %}
+                  {% set level_color = color.get(level,'gray') %}
+                  {% set circle = {'low':'25','moderate':'50','high':'75','very-high':'100'} %}        
+                  {% set percentage = circle.get(level,'25') %}
+                  border-radius: 24px;
+                  background: radial-gradient(var(--card-background-color) 60%,transparent calc(60% + 1px)),
+                  conic-gradient({{level_color}} {{percentage}}% 0%,
+                  var(--card-background-color) 0% 100%);
+                  --tile-color: {{level_color}};
+                }
+          - entity: sensor.kleenex_pollen_radar_home_grass
+            name: Grass
+            type: tile
+            vertical: true
+            tap_action:
+              action: more-info
+            card_mod:
+              style: |
+                ha-tile-icon {
+                  {% set level = states('sensor.kleenex_pollen_radar_home_grass_level') %}
+                  {% set color = {'low':'green','moderate':'orange','high':'red','very-high':'maroon'} %}
+                  {% set level_color = color.get(level,'gray') %}
+                  {% set circle = {'low':'25','moderate':'50','high':'75','very-high':'100'} %}        
+                  {% set percentage = circle.get(level,'25') %}
+                  border-radius: 24px;
+                  background: radial-gradient(var(--card-background-color) 60%,transparent calc(60% + 1px)),
+                  conic-gradient({{level_color}} {{percentage}}% 0%,
+                  var(--card-background-color) 0% 100%);
+                  --tile-color: {{level_color}};
+                }
+          - entity: sensor.kleenex_pollen_radar_home_trees
+            name: Trees
+            type: tile
+            vertical: true
+            tap_action:
+              action: more-info
+            card_mod:
+              style: |
+                ha-tile-icon {
+                  {% set level = states('sensor.kleenex_pollen_radar_home_trees_level') %}
+                  {% set color = {'low':'green','moderate':'orange','high':'red','very-high':'maroon'} %}
+                  {% set level_color = color.get(level,'gray') %}
+                  {% set circle = {'low':'25','moderate':'50','high':'75','very-high':'100'} %}        
+                  {% set percentage = circle.get(level,'25') %}
+                  border-radius: 24px;
+                  background: radial-gradient(var(--card-background-color) 60%,transparent calc(60% + 1px)),
+                  conic-gradient({{level_color}} {{percentage}}% 0%,
+                  var(--card-background-color) 0% 100%);
+                  --tile-color: {{level_color}};
+                }
+      - type: horizontal-stack
+        cards:
+          - type: markdown
+            entity: sensor.kleenex_pollen_radar_home_weeds_level
+            card_mod:
+              style: |
+                ha-card {
+                  color:
+                    {% set level = states('sensor.kleenex_pollen_radar_home_weeds_level') %}
+                    {% set color = {'low':'green','moderate':'orange','high':'red','very-high':'maroon'} %}
+                    {% set level_color = color.get(level,'gray') %}
+                    {{level_color}};
+                  font-weight: 800;
+                  text-align: center;
+                }
+            content: |
+              {% set level = states(config.entity) %}
+              {% set text = {'low':'low','moderate':'moderate','high':'high','very-high':'very high'} %}
+              {% set level_text = text.get(level,'unknown') %}
+              {{ level_text }}
+          - type: markdown
+            entity: sensor.kleenex_pollen_radar_home_grass_level
+            card_mod:
+              style: |
+                ha-card {
+                  color:
+                    {% set level = states('sensor.kleenex_pollen_radar_home_grass_level') %}
+                    {% set color = {'low':'green','moderate':'orange','high':'red','very-high':'maroon'} %}
+                    {% set level_color = color.get(level,'gray') %}
+                    {{level_color}};
+                  font-weight: 800;
+                  text-align: center;
+                }
+            content: |
+              {% set level = states(config.entity) %}
+              {% set text = {'low':'low','moderate':'moderate','high':'high','very-high':'very high'} %}
+              {% set level_text = text.get(level,'unknown') %}
+              {{ level_text }}
+          - type: markdown
+            entity: sensor.kleenex_pollen_radar_home_trees_level
+            card_mod:
+              style: |
+                ha-card {
+                  color:
+                    {% set level = states('sensor.kleenex_pollen_radar_home_trees_level') %}
+                    {% set color = {'low':'green','moderate':'orange','high':'red','very-high':'maroon'} %}
+                    {% set level_color = color.get(level,'gray') %}
+                    {{level_color}};
+                  font-weight: 800;
+                  text-align: center;
+                }
+            content: |
+              {% set level = states(config.entity) %}
+              {% set text = {'low':'low','moderate':'moderate','high':'high','very-high':'very high'} %}
+              {% set level_text = text.get(level,'unknown') %}
+              {{ level_text }}
+
+  - type: custom:group-card
+    card:
+      type: entities
+      title: Disable Alarms
+    group: group.disable_alarms
+
+  - type: entities
+    entities:
+      - entity:  input_button.disable_piholes
+      - entity:  input_number.disable_pihole_duration_hours
+      - entity:  input_number.disable_pihole_duration_mins
+      - entity:  input_number.disable_pihole_duration_sec

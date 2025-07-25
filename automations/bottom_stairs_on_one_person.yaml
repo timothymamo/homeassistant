@@ -1,0 +1,16 @@
+- id: bottom_stairs_on_one_person_turn_off_downstairs_lights
+  alias: 'Bottom Stairs ON - One Person - Turn OFF Downstairs Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.bottom_stairs
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.one_person
+      state: 'on'
+  action:
+    - service: script.turn_off_entrance
+    - service: script.turn_off_hallway
+    - service: script.turn_off_dining
+    - service: script.turn_off_living
+    - service: script.turn_off_kitchen

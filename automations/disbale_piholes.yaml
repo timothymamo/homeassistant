@@ -1,0 +1,11 @@
+- id: disable_piholes
+  alias: 'Disable Pi-holes Momentarily'
+  trigger:
+    - platform: state
+      entity_id: input_button.disable_piholes
+  action:
+    - service: pi_hole.disable
+      data_template:
+        duration: '{{ states.sensor.pihole_disable_time.state }}'
+      target:
+        entity_id: all

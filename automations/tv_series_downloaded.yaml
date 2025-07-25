@@ -1,0 +1,12 @@
+- id: send_notification_tv_series_downloaded
+  alias: Send Notification TV Series Downloaded
+  mode: queued
+  trigger:
+    - platform: state
+      entity_id: sensor.plex_library_tv_shows
+      id: episode
+  action:
+    - service: notify.mobile_app_tim_mobile
+      data_template:
+        title: "TV Series Episode Added!"
+        message: 'New episode added - {{state_attr("sensor.plex_library_tv_shows", "last_added_item")}}'

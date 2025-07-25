@@ -1,0 +1,8 @@
+- id: turn_off_all_lights_at_1
+  alias: 'Turn off all lights at 1'
+  trigger:
+    - platform: time
+      at: "01:00:00"
+  action:
+    - service: light.turn_off
+      entity_id: all

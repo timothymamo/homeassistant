@@ -1,0 +1,16 @@
+title: Bedroom
+icon: mdi:bed-king-outline
+path: bedroom
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Bedroom
+    group: group.bedroom
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Stairway
+    group: group.stairway

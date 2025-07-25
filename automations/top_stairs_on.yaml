@@ -1,0 +1,36 @@
+- id: top_stairs_on
+  alias: 'Top Stairs ON - Turn on Dining and Hallway'
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: input_boolean.top_stairs
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.asleep
+        state: 'off'
+  action:
+    - service: script.turn_on_stairs
+    - service: script.turn_on_dining
+    - service: script.turn_on_hallway
+    - delay:
+        minutes: 1
+    - condition: state
+      entity_id: binary_sensor.magnet_sensor_storage
+      state: 'off'
+    - service: script.turn_off_hallway
+    - condition: state
+      entity_id: input_boolean.bottom_stairs
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.top_stairs
+      state: 'off'
+    - service: script.turn_off_stairs

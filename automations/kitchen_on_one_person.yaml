@@ -1,0 +1,13 @@
+- id: kitchen_on_one_person_turn_off_bedroom_and_entrance_lights
+  alias: 'Kitchen ON - One Person - Turn OFF Bedroom and Entrance Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.kitchen
+      to: 'on'
+  condition:
+    - condition:  state
+      entity_id: input_boolean.one_person
+      state: 'on'
+  action:
+    - service: script.turn_off_bedroom
+    - service: script.turn_off_entrance

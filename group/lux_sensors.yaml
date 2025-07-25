@@ -1,0 +1,8 @@
+lux_sensors:
+  name: Lux Sensors
+  entities:
+    - sensor.motion_sensor_bottom_stairs_illuminance
+    - sensor.motion_sensor_top_stairs_illuminance
+    - sensor.motion_sensor_kitchen_illuminance
+    - sensor.motion_sensor_storage_illuminance
+    - sensor.motion_sensor_hallway_illuminance

@@ -1,0 +1,23 @@
+- id: toggle_tim_in_bed_boolean_when_bed_sensor_closed
+  alias: 'Toggle Tim in Bed boolean when bed sensor closed'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.magnet_sensor_tim_bed
+      to: 'off'
+      for:
+        seconds: 1
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.tim_in_bed
+
+- id: toggle_tim_in_bed_boolean_when_bed_sensor_open
+  alias: 'Toggle Tim in Bed boolean when bed sensor open'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.magnet_sensor_tim_bed
+      to: 'on'
+      for:
+        seconds: 5
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.tim_in_bed

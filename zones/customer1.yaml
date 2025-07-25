@@ -1,0 +1,5 @@
+name: !secret customer1_name
+latitude: !secret customer1_lat
+longitude: !secret customer1_long
+radius: 100
+icon: mdi:briefcase

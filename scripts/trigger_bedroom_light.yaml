@@ -1,0 +1,19 @@
+turn_on_bedroom:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.bedroom_light_override
+      state: 'off'
+    - service: light.turn_on
+      entity_id: light.bedroom
+      data_template:
+        brightness: "{{ brightness | default(255) }}"
+        rgb_color: "{{ color_temp | default([255,162, 76]) }}" # 389
+        transition: "{{ transition | default(0.4) }}"
+
+turn_off_bedroom:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.bedroom_light_override
+      state: 'off'
+    - service: light.turn_off
+      entity_id: light.bedroom

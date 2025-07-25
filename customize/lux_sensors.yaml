@@ -1,0 +1,11 @@
+# Lux Sensors
+sensor.motion_sensor_bottom_stairs_2:
+  friendly_name: Lux Sensor Bottom Stairs
+sensor.motion_sensor_hallway_2:
+  friendly_name: Lux Sensor Hallway
+sensor.motion_sensor_kitchen_2:
+  friendly_name: Lux Sensor Kitchen
+sensor.motion_sensor_storage_2:
+  friendly_name: Lux Sensor Storage
+sensor.motion_sensor_top_stairs_2:
+  friendly_name: Lux Sensor Top Stairs

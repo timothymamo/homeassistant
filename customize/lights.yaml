@@ -1,0 +1,15 @@
+# Lights
+light.dining_1:
+  friendly_name: Dining1
+light.dining_2:
+  friendly_name: Dining2
+light.bedroom:
+  friendly_name: Bedroom
+light.hallway:
+  friendly_name: Hallway Light
+light.kitchen:
+  friendly_name: Kitchen
+light.lamp:
+  friendly_name: Lamp
+light.entrance:
+  friendly_name: Entrance

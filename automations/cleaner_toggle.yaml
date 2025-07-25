@@ -1,0 +1,38 @@
+- id: cleaner_on_turn_off_no_one_home
+  alias: 'Cleaner ON - Turn OFF No One Home'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.cleaner
+      to: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.no_one_home
+
+- id: entrance_cleaner_on_turn_on_cameras
+  alias: 'Entrance ON - Cleaner ON - Turn On Cameras'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.entrance
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.cleaner
+      state: 'on'
+  action:
+      alias: Cameras Loop
+      service: script.cameras_arm_disarm_loop
+
+- id: cleaner_off_turn_off_cameras_toggle_no_one_home
+  alias: 'Cleaner OFF - Turn Off Cameras, Toggle No One Home'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.cleaner
+      to: 'off'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      target:
+        entity_id: alarm_control_panel.blink_home
+    - condition: template
+      value_template: '{% if not is_state("person.ruby", "home") and not is_state("person.tim", "home") %}true{% endif %}'
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.no_one_home

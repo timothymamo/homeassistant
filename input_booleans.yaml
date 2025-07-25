@@ -1,0 +1,146 @@
+wakeup_enabled:
+  name: "Wake-up lights"
+  icon: mdi:theme-light-dark
+
+wakeup_weekend:
+  name: "Enable Wake-up on weekends"
+  icon: mdi:calendar-blank
+
+top_stairs:
+  name: "Top Stairs Motion Sensor"
+  icon: mdi:motion-sensor
+
+bottom_stairs:
+  name: "Bottom Stairs Motion Sensor"
+  icon: mdi:motion-sensor
+
+entrance:
+  name: "Entrance Motion Sensor"
+  icon: mdi:motion-sensor
+
+hallway:
+  name: "Hallway Motion Sensor"
+  icon: mdi:motion-sensor
+
+kitchen:
+  name: "Kitchen Motion Sesnor"
+  icon: mdi:motion-sensor
+
+storage:
+  name: "Storage Motion Sensor"
+  icon: mdi:motion-sensor
+
+no_one_home:
+  name: "No One Home"
+  icon: mdi:home-remove-outline
+
+override_presence:
+  name: "Override Home Presence"
+  icon: mdi:lock-outline
+
+asleep:
+  name: "Everyone is asleep"
+  icon: mdi:sleep
+
+hue_dimmer:
+  name: "Hue Dimmer"
+  icon: mdi:light-switch
+
+hue_smart_button:
+  name: "Hue Smart Button"
+  icon: mdi:light-switch
+
+hue_smart_button_2:
+  name: "Hue Smart Button 2"
+  icon: mdi:light-switch
+
+dining_light_override:
+  name: "Dining Room Light Override"
+  icon: mdi:alarm-off
+
+kitchen_light_override:
+  name: "Kitchen Light Override"
+  icon: mdi:alarm-off
+
+entrance_light_override:
+  name: "Entrance Light Override"
+  icon: mdi:alarm-off
+
+living_light_override:
+  name: "Living Room Light Override"
+  icon: mdi:alarm-off
+
+bedroom_light_override:
+  name: "Bedroom Light Override"
+  icon: mdi:alarm-off
+
+hall_light_override:
+  name: "Hallway Light Override"
+  icon: mdi:alarm-off
+
+stairs_light_override:
+  name: "Stairs Light Override"
+  icon: mdi:alarm-off
+
+clothes_bedroom_light_override:
+  name: "Clothes Bedroom Light Override"
+  icon: mdi:alarm-off
+
+daylight:
+  name: "Daylight"
+  icon: mdi:theme-light-dark
+
+downstairs_override:
+  name: "Downstairs Override"
+  icon: mdi:alarm-off
+
+disable_alarm:
+  name: "Disable Alarm"
+  icon: mdi:alarm-bell
+
+disable_alarm_lights:
+  name: "Disable Alarm Lights"
+  icon: mdi:car-parking-lights
+
+disable_alarm_voice:
+  name: "Disable Voice Alarm"
+  icon: mdi:account-voice-off
+
+disable_alarm_notification:
+  name: "Disable Notification Alarm"
+  icon: mdi:message-alert-outline
+
+disable_alarm_camera:
+  name: "Disable Camera Alarm"
+
+cleaner:
+  name: "Cleaner"
+  icon: mdi:broom
+
+ruby:
+  name: "Ruby"
+  icon: mdi:human-female
+
+tim:
+  name: "Tim"
+  icon: mdi:human-male
+
+one_person:
+  name: "One Person"
+  icon: mdi:account
+
+guests:
+  name: "Guests"
+  icon: mdi:account-multiple-outline
+
+fwd_email_both:
+  name: "Both"
+  icon: mdi:email-multiple-outline
+
+tim_in_bed:
+  name: "Tim in Bed"
+  icon: mdi:bed-outline
+
+tim_in_bed_override:
+  name: "Tim in Bed Override"
+  icon: mdi:alarm-off

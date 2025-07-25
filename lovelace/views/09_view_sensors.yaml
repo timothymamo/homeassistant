@@ -1,0 +1,22 @@
+title: Home
+icon: mdi:motion-sensor
+path: sensors
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Motion Sensors
+    group: group.motion_sensors
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Lux Sensors
+    group: group.lux_sensors
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Temperature Sensors
+    group: group.temp_sensors

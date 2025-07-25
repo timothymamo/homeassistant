@@ -1,0 +1,9 @@
+bedroom:
+  name: Bedroom
+  entities:
+    - light.bedroom
+    - light.clothes_bedroom
+    - input_boolean.hue_smart_button
+    - input_boolean.hue_smart_button_2
+    - input_boolean.tim_in_bed
+    - input_boolean.tim_in_bed_override

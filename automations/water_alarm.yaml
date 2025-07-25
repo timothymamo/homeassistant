@@ -1,0 +1,40 @@
+- id: warn_when_water_sensor_is_triggered
+  alias: 'Warn when water sensor is triggered'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.water_sensor_kitchen
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.water_sensor_washing_machine
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.water_sensor_combi_boiler
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.water_sensor_dish_washer
+      to: 'on'
+  action:
+    - alias: Send Notification
+      service: script.alarm_notification
+      data:
+        title: "!!! WATER SENSOR WARNING !!!"
+        message: "{% if is_state('binary_sensor.water_sensor_kitchen', 'on') or is_state('binary_sensor.water_sensor_dish_washer', 'on') %}
+        !!! Water sensor under the dish washer has been triggered !!!
+        {% elif is_state('binary_sensor.water_sensor_washing_machine', 'on') %}
+        !!! Water sensor under the washing machine has been triggered !!!
+        {% elif is_state('binary_sensor.water_sensor_combi_boiler', 'on') %}
+        !!! Water sensor under the boiler has been triggered !!!
+        {% endif %}"
+    - service: media_player.media_pause
+      entity_id: media_player.mybraviatv
+    - alias: Voice Alarm
+      service: script.alarm_voice
+      data:
+        message: "A water leak has been detected. The
+        {% if is_state('binary_sensor.water_sensor_kitchen', 'on') or is_state('binary_sensor.water_sensor_dish_washer', 'on') %}
+        water sensor under the dish washer has been triggered.
+        {% elif is_state('binary_sensor.water_sensor_washing_machine', 'on') %}
+        water sensor under the washing machine has been triggered.
+        {% elif is_state('binary_sensor.water_sensor_combi_boiler', 'on') %}
+        water sensor under the boiler has been triggered.
+        {% endif %}"

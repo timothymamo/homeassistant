@@ -1,0 +1,11 @@
+stop_automations_due_to_cleaner:
+  alias: Stop Automations Due To Cleaner
+  sequence:
+    - alias: Stop Automations
+      service: homeassistant.turn_off
+      entity_id:
+        - automation.bottom_stairs_on_one_person_turn_off_downstairs_lights
+        - automation.hallway_on_one_person_turn_off_dining_bedroom_living_kitchen_lights
+        - automation.kitchen_on_one_person_turn_off_bedroom_and_entrance_lights
+        - automation.top_stairs_on_one_person_turn_off_bedroom_living_room_entrance_kitchen
+        - automation.tv_on_one_person

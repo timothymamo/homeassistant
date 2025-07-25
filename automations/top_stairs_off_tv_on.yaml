@@ -1,0 +1,14 @@
+- id: top_stairs_off_tv_on
+  alias: 'Top Stairs OFF - TV ON - Turn OFF Dining Room Light'
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: input_boolean.top_stairs
+      to: 'off'
+      for:
+        minutes: 2
+  condition:
+    condition: template
+    value_template: "{{ not is_state('media_player.mybraviatv', 'off') }}"
+  action:
+    - service: script.turn_off_dining

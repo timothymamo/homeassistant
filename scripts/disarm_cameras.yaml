@@ -1,0 +1,6 @@
+disarm_cameras:
+  sequence:
+    - alias: Disarm Camera
+      service: alarm_control_panel.alarm_disarm
+      target:
+        entity_id: alarm_control_panel.blink_home

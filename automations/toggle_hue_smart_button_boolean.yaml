@@ -1,0 +1,36 @@
+- id: hue_smart_button_toggle
+  alias: 'Hue Smart Button Toggle'
+  trigger:
+    - platform: event
+      event_type: zha_event
+      event_data:
+        device_id: 53c6befcc3819e99fe1ecee031ebf368
+        command: "on_press"
+  action:
+    - service_template: >
+        {% if is_state('input_boolean.hue_smart_button', 'off') %} 
+          homeassistant.turn_on
+        {% elif is_state('input_boolean.hue_smart_button', 'on') %}
+          homeassistant.turn_off
+        {% endif %}
+      entity_id: input_boolean.hue_smart_button
+
+- id: hue_smart_button_on_clothes_light
+  alias: 'Hue Smart Button ON When Clothes Bedroom Light is ON'
+  trigger:
+    - platform: state
+      entity_id: light.clothes_bedroom
+      to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.hue_smart_button
+
+- id: hue_smart_button_off_clothes_light
+  alias: 'Hue Smart Button OFF When Clothes Bedroom Light is OFF'
+  trigger:
+    - platform: state
+      entity_id: light.clothes_bedroom
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.hue_smart_button

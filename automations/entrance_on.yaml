@@ -1,0 +1,43 @@
+- id: entrance_on_turn_on_entrance_hallway_and_dining_lights
+  alias: 'Entrance ON - Turn On Entrance, Hallway and Dining Lights'
+  mode: restart
+  trigger:
+    - platform: state
+      entity_id: input_boolean.entrance
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.daylight
+      state: 'off'
+  action:
+    - service: notify.mobile_app_tim_mobile
+      data:
+        message: "request_location_update"
+    - service: notify.mobile_app_ruby_mobile
+      data:
+        message: "request_location_update"
+    - service: script.turn_on_entrance
+    - delay:
+        seconds: 10
+    - condition: state
+      entity_id: input_boolean.no_one_home
+      state: 'off'
+    - service: script.turn_on_hallway
+    - condition: state
+      entity_id: input_boolean.asleep
+      state: 'off'
+    - delay:
+        seconds: 10
+    - service: script.turn_on_dining
+    - delay:
+        minutes: 2
+    - service: script.turn_off_entrance
+    - condition: state
+      entity_id: input_boolean.storage
+      state: 'off'
+    - service: script.turn_off_hallway
+    - delay:
+        minutes: 3
+    - condition: template
+      value_template: "{{ not is_state('media_player.mybraviatv', 'off') }}"
+    - service: script.turn_off_dining

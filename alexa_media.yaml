@@ -1,0 +1,9 @@
+accounts:
+  - email: !secret amazon_user
+    password: !secret amazon_password
+    url: amazon.nl
+    exclude_devices:
+      - "This Device"
+      - "Everywhere"
+      - "Timothy's Alexa Apps"
+      - "Timothy's echosim_BETA"

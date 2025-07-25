@@ -1,0 +1,58 @@
+entity_config:
+  group.all_lights:
+    name: 'All Lights'
+    display_categories: 'LIGHT'
+  group.bedroom:
+    name: 'Bedroom'
+    display_categories: 'LIGHT'
+  group.dining_room:
+    name: 'Dining Room Group'
+    display_categories: 'LIGHT'
+  light.dining_room:
+    name: 'Dining Room'
+    display_categories: 'LIGHT'
+  group.entrance:
+    name: 'Entrance'
+    display_categories: 'Light'
+  group.hallway:
+    name: 'Hallway'
+    display_categories: 'LIGHT'
+  group.kitchen:
+    name: 'Kitchen'
+    display_categories: 'LIGHT'
+  group.living_room:
+    name: 'Living Room'
+    display_categories: 'LIGHT'
+  light.dining_1:
+    name: 'Dining 1'
+    display_categories: 'LIGHT'
+  light.dining_2:
+    name: 'Dining 3'
+    display_categories: 'LIGHT'
+  light.bedroom:
+    name: 'Bedroom Light'
+    display_categories: 'LIGHT'
+  light.hallway:
+    name: 'Hallway Light'
+    display_categories: 'LIGHT'
+  light.kitchen:
+    name: 'Kitchen Light'
+    display_categories: 'LIGHT'
+  light.lamp:
+    name: 'Lamp'
+    display_categories: 'LIGHT'
+  light.entrance:
+    name: 'Entrance Light'
+    display_categories: 'LIGHT'
+  media_player.mybraviatv:
+    name: 'TV'
+    display_categories: 'TV'
+  media_player.playstation_4:
+    name: 'PlayStation 4'
+    display_categories: 'TV'
+  scene.movie_night:
+    name: 'Movie Night'
+  scene.movie_night_light:
+    name: 'Movie Night Light'
+  scene.everyone_asleep:
+    name: 'Everyone Asleep'

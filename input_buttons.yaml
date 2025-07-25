@@ -1,0 +1,4 @@
+# Example configuration.yaml entry
+disable_piholes:
+  name: Disable Pi-holes
+  icon: mdi:advertisements-off

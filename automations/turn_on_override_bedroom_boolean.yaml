@@ -1,0 +1,16 @@
+- id: turn_on_bedroom_override_boolean_if_bottom_stairs_counter_below_one
+  alias: 'Turn on bedroom override boolean if bottom stairs counter below one'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.top_stairs
+      to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: counter.bottom_stairs_counter
+      below: 1
+    - condition: state
+      entity_id: input_boolean.one_person
+      state: 'off'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.bedroom_light_override

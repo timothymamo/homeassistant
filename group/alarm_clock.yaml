@@ -1,0 +1,5 @@
+alarm_clock:
+  name: "Wake-up Lights"
+  entities:
+    - input_boolean.wakeup_enabled
+    - input_number.wakeup_transition 

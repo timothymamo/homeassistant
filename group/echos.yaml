@@ -1,0 +1,5 @@
+echos:
+  name: Echomania
+  entities:
+    - media_player.bedroom_dot
+    - media_player.kitchen_dot

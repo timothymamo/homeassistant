@@ -1,0 +1,61 @@
+# Default integrations (substitute for default_config) 
+config:
+frontend:
+  themes: !include_dir_merge_named /config/themes/
+history:
+logbook:
+person:
+ssdp:
+sun:
+system_health:
+mobile_app:
+media_source:
+wake_on_lan:
+
+tts:
+  - platform: google_translate
+
+homeassistant:
+  customize: !include_dir_merge_named /config/customize/
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.0.0.0/8
+    - 192.168.0.0/16
+
+logger:
+  default: warning
+  filters:
+    alexapy.alexalogin:
+      - "Domain amazon.nl does not match reported account*"
+      - "No access token found; falling back to credential login instead of oauth."
+    homeassistant.helpers.template:
+      - "Template variable warning: 'hour' is undefined when rendering"
+      - "Template variable warning: No first item, sequence was empty. when rendering '{{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}'"
+
+lovelace:
+  mode: yaml
+  resources: !include lovelace/resources.yaml
+
+cloud:
+  alexa: !include_dir_merge_named /config/alexa/
+
+influxdb: !include influxdb.yaml
+recorder: !include recorder.yaml
+group: !include_dir_merge_named /config/group/
+automation: !include_dir_merge_list /config/automations/
+intent_script: !include intent_scripts.yaml
+script: !include_dir_merge_named /config/scripts/
+zone: !include_dir_list /config/zones/
+sensor: !include sensors.yaml
+scene: !include_dir_merge_list /config/scenes/
+input_boolean: !include input_booleans.yaml
+counter: !include counters.yaml
+input_datetime: !include input_datetimes.yaml
+input_button: !include input_buttons.yaml
+input_number: !include input_numbers.yaml
+shell_command: !include_dir_merge_named /config/shell_commands/
+light: !include light_group.yaml
+input_text: !include input_text.yaml
+rest_command: !include rest_command.yaml

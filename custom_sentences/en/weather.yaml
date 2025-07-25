@@ -1,0 +1,6 @@
+language: "en"
+intents:
+  WeatherUpdate:
+    data:
+      - sentences:
+        - "Good morning"

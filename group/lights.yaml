@@ -1,0 +1,12 @@
+all_lights:
+  name: All Lights
+  entities:
+    - light.dining_1
+    - light.dining_2
+    - light.kitchen
+    - light.hallway
+    - light.bedroom
+    - light.lamp
+    - light.entrance
+    - light.stairs
+    - light.clothes_bedroom

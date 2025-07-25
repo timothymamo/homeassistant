@@ -1,0 +1,37 @@
+- id: tim_and_ruby_not_home
+  alias: 'Tim and Ruby NOT HOME'
+  trigger:
+    - platform: template
+      value_template: '{% if not is_state("person.ruby", "home") and not is_state("person.tim", "home") %}true{% endif %}'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.override_presence
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.cleaner
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.guests
+        state: 'off'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.no_one_home
+
+- id: tim_or_ruby_home
+  alias: 'Tim or Ruby HOME'
+  trigger:
+    - platform: template
+      value_template: '{% if is_state("person.ruby", "home") or is_state("person.tim", "home") %}true{% endif %}'
+  condition: 
+    - condition: state
+      entity_id: input_boolean.override_presence
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.no_one_home
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.disable_alarm
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.cleaner

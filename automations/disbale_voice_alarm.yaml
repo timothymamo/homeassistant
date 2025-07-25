@@ -1,0 +1,9 @@
+- id: disable_voice_alarm
+  alias: 'Disable Voice Alarm'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.disable_alarm_voice
+      to: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.stop_voice_notification

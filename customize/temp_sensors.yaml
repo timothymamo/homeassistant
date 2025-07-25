@@ -1,0 +1,11 @@
+# Temperature Sensors
+sensor.motion_sensor_bottom_stairs:
+  friendly_name: Temp Sensor Bottom Stairs
+sensor.motion_sensor_hallway:
+  friendly_name: Temp Sensor Hallway
+sensor.motion_sensor_kitchen:
+  friendly_name: Temp Sensor Kitchen
+sensor.motion_sensor_storage:
+  friendly_name: Temp Sensor Storage
+sensor.motion_sensor_top_stairs:
+  friendly_name: Temp Sensor Top Stairs

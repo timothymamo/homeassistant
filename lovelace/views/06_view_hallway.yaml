@@ -1,0 +1,16 @@
+title: Hallway
+icon: mdi:coat-rack
+path: hallway
+cards:
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Hallway
+    group: group.hallway
+  - type: custom:group-card
+    card:
+      type: entities
+      show_header_toggle: true
+      title: Hallway Sensors
+    group: group.hallway_sensors

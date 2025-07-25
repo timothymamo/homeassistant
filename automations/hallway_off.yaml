@@ -1,0 +1,10 @@
+- id: hallway_off_turn_off_entrance_light
+  alias: 'Hallway OFF - Turn OFF Entrance Light'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.hallway
+      to: 'off'
+      for:
+        minutes: 3
+  action:
+    - service: script.turn_off_entrance

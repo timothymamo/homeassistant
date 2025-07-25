@@ -1,0 +1,35 @@
+# Ignore auto-generated files and folders
+.cloud/
+deps/
+.ps4-games.json
+html5_push_registrations.conf
+.storage/
+tts/
+.uuid
+www/community/
+alexa_media.amazon@themamo.com.pickle
+
+# Ignore secrets file
+secrets.yaml
+
+# Ignore the log and database
+home-assistant.log*
+home-assistant_v2.db*
+
+# Ignore any private keys
+asus_router
+
+# Ignore google verification for html5
+www/google*
+
+# Ignore custom components
+custom_components/*
+
+# Ignore known devices
+known_devices*
+
+# Ignore google maps cookie file
+.google_maps_location_sharing*
+
+# Ignore zigbee db
+zigbee.db*

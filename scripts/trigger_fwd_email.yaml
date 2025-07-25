@@ -1,0 +1,5 @@
+toggle_fwd_email_both:
+  sequence:
+    - service: input_boolean.toggle
+      target:
+        entity_id: input_boolean.fwd_email_both

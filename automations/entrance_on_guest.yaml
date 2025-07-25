@@ -1,0 +1,13 @@
+- id: entrance_on_guest_on_turn_on_cameras
+  alias: 'Entrance ON - Guests ON - Turn ON Cameras'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.entrance
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.guests
+      state: 'on'
+  action:
+    - alias: Cameras Loop
+      service: script.cameras_arm_disarm_loop

@@ -1,0 +1,7 @@
+ha_post:
+  url: http://localhost:8123/api/states/{{ entity }}
+  method: POST
+  headers:
+    authorization: 'Bearer {{ ha_token }}'
+    content_type: 'application/json'
+  payload: '{{ payload }}'

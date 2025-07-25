@@ -1,0 +1,29 @@
+wakeup_transition:
+  name: "Transition Time (min)"
+  min: 0
+  max: 60
+  initial: 15
+  step: 5
+  icon: mdi:transition-masked
+  mode: slider
+disable_pihole_duration_hours:
+  name: Hours
+  initial: 00
+  min: 0
+  max: 24
+  step: 1
+  mode: box
+disable_pihole_duration_mins:
+  name: Minutes
+  initial: 00
+  min: 0
+  max: 55
+  step: 5
+  mode: box
+disable_pihole_duration_sec:
+  name: Seconds
+  initial: 30
+  min: 0
+  max: 55
+  step: 5
+  mode: box

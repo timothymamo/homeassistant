@@ -1,0 +1,10 @@
+- id: disable_alarm_from_notification
+  alias: 'Disable Alarm from Notification'
+  trigger:
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: disable_alarm
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.disable_alarm

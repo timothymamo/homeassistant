@@ -1,0 +1,5 @@
+name: !secret ruby_work_name
+latitude: !secret ruby_work_lat
+longitude: !secret ruby_work_long
+radius: 100
+icon: mdi:briefcase

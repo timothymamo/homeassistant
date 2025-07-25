@@ -1,0 +1,17 @@
+host: 192.168.1.100
+#username: !secret influxdb_user
+#password: !secret influxdb_password
+port: 8086
+api_version: 2
+ssl: false
+organization: !secret ha_influxdb_org
+token: !secret ha_influxdb_token
+bucket: !secret ha_influxdb_bucket
+exclude:
+  domains:
+    - zone
+  entities:
+    - sensor.hacs
+    - sensor.time
+    - sun.sun
+    - weather.home

@@ -1,0 +1,15 @@
+- id: top_stairs_on_one_person
+  alias: 'Top Stairs ON - One Person - Turn OFF Bedroom, Living Room, Entrance, Kitchen'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.top_stairs
+      to: 'on'
+  condition:
+    condition:  state
+    entity_id: input_boolean.one_person
+    state: 'on'
+  action:
+    - service: script.turn_off_bedroom
+    - service: script.turn_off_living
+    - service: script.turn_off_entrance
+    - service: script.turn_off_kitchen

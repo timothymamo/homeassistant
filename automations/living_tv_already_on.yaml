@@ -1,0 +1,67 @@
+- id: daylight_off_tv_on_turn_on_living_room_lights
+  alias: 'Daylight OFF - TV ON - Turn ON Living Room Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.daylight
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ not is_state('media_player.mybraviatv', 'off') }}"
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.asleep
+        state: 'off'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.movie_night_light
+
+- id: tv_off_turn_on_dining_room_lights
+  alias: 'TV OFF - Turn ON Dining Room Lights'
+  trigger:
+    - platform: state
+      entity_id: media_player.mybraviatv
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+  action:
+    - service: script.turn_on_dining
+    - delay:
+        minutes: 1
+    - service: script.turn_off_living
+    - delay:
+        minutes: 3
+    - service: script.turn_off_dining
+
+- id: tv_on_turn_off_dining_room_lights_turn_on_movie_scene
+  alias: 'TV ON - Turn OFF Dining Room Lights; Turn ON Movie Scene'
+  trigger:
+    - platform: state
+      entity_id: media_player.mybraviatv
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.asleep
+        state: 'off'
+  action:
+    - service: script.turn_off_dining
+    - service: scene.turn_on
+      entity_id: scene.movie_night_light

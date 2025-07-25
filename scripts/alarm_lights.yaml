@@ -1,0 +1,22 @@
+alarm_lights:
+  alias: Flash Lights
+  sequence:
+    - condition: state
+      entity_id: input_boolean.disable_alarm_lights
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.no_one_home
+      state: 'on'
+    - alias: Lights On
+      service: light.turn_on
+      entity_id: all
+      data:
+        brightness: 255
+    - delay:
+        seconds: 2
+    - alias: Lights Off
+      service: light.turn_off
+      entity_id: all
+    - alias: Loop Lights with Script
+      service: script.turn_on
+      entity_id: script.lights_loop

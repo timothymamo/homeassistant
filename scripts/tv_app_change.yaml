@@ -1,0 +1,60 @@
+prime_app_change:
+  sequence:
+    - service: shell_command.prime_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+netflix_app_change:
+  sequence:
+    - service: shell_command.netflix_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+plex_app_change:
+  sequence:
+    - service: shell_command.plex_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+nos_app_change:
+  sequence:
+    - service: shell_command.nos_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+npo_app_change:
+  sequence:
+    - service: shell_command.npo_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+disneyplus_app_change:
+  sequence:
+    - service: shell_command.disneyplus_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+youtube_app_change:
+  sequence:
+    - service: shell_command.youtube_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+sonypicturescore_app_change:
+  sequence:
+    - service: shell_command.sonypicturescore_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+hbomax_app_change:
+  sequence:
+    - service: shell_command.hbomax_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+livingdecor_app_change:
+  sequence:
+    - service: shell_command.livingdecor_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+ecodashboard_app_change:
+  sequence:
+    - service: shell_command.ecodashboard_app_change
+      data_template:
+        tv_psk: !secret tv_psk
+projectlauncher_app_change:
+  sequence:
+    - service: shell_command.projectlauncher_app_change
+      data_template:
+        tv_psk: !secret tv_psk

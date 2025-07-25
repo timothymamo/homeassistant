@@ -1,0 +1,58 @@
+- id: wake_me_up_with_bedroom_light
+  alias: "Wake me up with bedroom light"
+  mode: single
+  max_exceeded: silent
+  trigger:
+    platform: template
+    value_template: |
+      {% if (states.sensor.ruby_mobile_next_alarm.state != 'unavailable') and (states.sensor.tim_mobile_next_alarm.state != 'unavailable') %}
+        {% if (((as_timestamp(states.sensor.tim_mobile_next_alarm.state)) < (as_timestamp(states.sensor.ruby_mobile_next_alarm.state))) and is_state('input_boolean.tim', 'on')) %}
+          {% set day = (as_timestamp(states.sensor.tim_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%d") %}
+          {% set hour = (as_timestamp(states.sensor.tim_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%H") %}
+          {% set min = (as_timestamp(states.sensor.tim_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%M") %}
+        {% elif (((as_timestamp(states.sensor.tim_mobile_next_alarm.state)) > (as_timestamp(states.sensor.ruby_mobile_next_alarm.state))) and is_state('input_boolean.ruby', 'on')) %}
+          {% set day = (as_timestamp(states.sensor.ruby_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%d") %}
+          {% set hour = (as_timestamp(states.sensor.ruby_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%H") %}
+          {% set min = (as_timestamp(states.sensor.ruby_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%M") %}
+        {% else %}
+        {% endif %}
+      {% elif (states.sensor.ruby_mobile_next_alarm.state == 'unavailable') and (states.sensor.tim_mobile_next_alarm.state != 'unavailable') and is_state('input_boolean.tim', 'on') %}
+        {% set day = (as_timestamp(states.sensor.tim_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%d") %}
+        {% set hour = (as_timestamp(states.sensor.tim_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%H") %}
+        {% set min = (as_timestamp(states.sensor.tim_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%M") %}
+      {% elif (states.sensor.ruby_mobile_next_alarm.state != 'unavailable') and (states.sensor.tim_mobile_next_alarm.state == 'unavailable') and is_state('input_boolean.ruby', 'on') %}
+        {% set day = (as_timestamp(states.sensor.ruby_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%d") %}
+        {% set hour = (as_timestamp(states.sensor.ruby_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%H") %}
+        {% set min = (as_timestamp(states.sensor.ruby_mobile_next_alarm.state) - (states.input_number.wakeup_transition.state | int * 60)) | timestamp_custom("%M") %}
+      {% endif %}
+      {% if (states.sensor.ruby_mobile_next_alarm.state == 'unavailable' ) and (states.sensor.tim_mobile_next_alarm.state == 'unavailable') %}
+        False
+      {% elif (day == (as_timestamp(now()) | timestamp_custom("%d"))) and (hour == (as_timestamp(now()) | timestamp_custom("%H"))) and (min == (as_timestamp(now()) | timestamp_custom("%M"))) %}
+        True
+      {% else %}
+        False
+      {% endif %}
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.wakeup_enabled
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.asleep
+    - service: counter.reset
+      entity_id: counter.bottom_stairs_counter
+    - service: light.turn_on
+      entity_id: group.bedroom
+      data_template:
+        transition: "{{ states.input_number.wakeup_transition.state | int * 60 }}"
+        brightness: 127
+        color_temp: 389
+    - delay: '01:30:00'

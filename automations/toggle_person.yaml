@@ -1,0 +1,37 @@
+- id: toggle_boolean_when_tim_leaves_home
+  alias: 'Toggle boolean when Tim leaves home'
+  trigger:
+    - platform: template
+      value_template: '{% if not is_state("person.tim", "home") %}true{% else %}false{% endif %}'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.tim
+
+- id: toggle_boolean_when_tim_arrives_home
+  alias: 'Toggle boolean when Tim arrives home'
+  trigger:
+    - platform: state
+      entity_id: person.tim
+      to: 'home'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.tim
+
+- id: toggle_boolean_when_ruby_leaves_home
+  alias: 'Toggle boolean when Ruby leaves home'
+  trigger:
+    - platform: template
+      value_template: '{% if not is_state("person.ruby", "home") %}true{% else %}false{% endif %}'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.ruby
+
+- id: toggle_boolean_when_ruby_arrives_home
+  alias: 'Toggle boolean when Ruby arrives home'
+  trigger:
+    - platform: state
+      entity_id: person.ruby
+      to: 'home'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.ruby

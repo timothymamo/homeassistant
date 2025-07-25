@@ -1,0 +1,12 @@
+cameras_arm_disarm_loop:
+  alias: Camera Alarm
+  sequence:
+    - condition: state
+      entity_id: input_boolean.disable_alarm_camera
+      state: 'off'
+    - alias: Arm Camera
+      service: script.arm_cameras
+    - delay:
+        seconds: 30
+    - alias: Disarm Camera
+      service: script.disarm_cameras

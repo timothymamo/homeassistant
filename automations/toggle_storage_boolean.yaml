@@ -1,0 +1,19 @@
+- id: toggle_storage_boolean_when_sensor_triggers
+  alias: 'Toggle storage boolean when sensor triggers'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.magnet_sensor_storage
+      to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.storage
+
+- id: toggle_storage_boolean_to_off
+  alias: 'Toggle storage boolean to off'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.magnet_sensor_storage
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.storage

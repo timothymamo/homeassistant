@@ -1,0 +1,5 @@
+name: !secret tim_work_name
+latitude: !secret tim_work_lat
+longitude: !secret tim_work_long
+radius: 100
+icon: mdi:briefcase

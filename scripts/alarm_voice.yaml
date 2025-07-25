@@ -1,0 +1,41 @@
+alarm_voice:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.disable_alarm_voice
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.no_one_home
+      state: 'on'
+    - alias: Increase Volume
+      service: media_player.volume_set
+      data:
+        entity_id: 
+          - media_player.bedroom_dot
+          - media_player.kitchen_dot
+        volume_level: 1
+    - delay:
+        seconds: 2
+    - alias: Voice Script
+      service: notify.alexa_media
+      data_template:
+        data:
+          type: tts
+        message: "{{ message }}"
+        target:
+          - "Kitchen Dot"
+          - "Bedroom Dot"
+    - delay:
+        seconds: 15
+    - condition: state
+      entity_id: input_boolean.disable_alarm_voice
+      state: 'off'
+    - alias: Decrease Dots Volume
+      service: media_player.volume_set
+      data:
+        entity_id: 
+          - media_player.bedroom_dot
+          - media_player.kitchen_dot
+        volume_level: 0.7
+    - alias: Call Loop Voice Script
+      service: script.turn_on
+      entity_id: script.voice_loop

@@ -1,0 +1,3 @@
+  WeatherUpdate:
+    speech:
+      text: "Today you can expect it to be {{ states('sensor.home_condition_today') }}, with a high of {{ states('sensor.home_realfeel_temperature_max_today') | round(0) }} degrees and a low of {{ states('sensor.home_realfeel_temperature_min_today') | round(0) }} degrees. Currently the real feel is {{ states('sensor.home_realfeel_temperature') | round(0) }} degrees."

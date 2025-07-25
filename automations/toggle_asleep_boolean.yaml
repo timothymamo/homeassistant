@@ -1,0 +1,9 @@
+- id: daylight_on_7_turn_off_asleep
+  alias: 'Daylight ON 7 - Turn OFF Asleep'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.daylight
+      to: 'on'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.asleep

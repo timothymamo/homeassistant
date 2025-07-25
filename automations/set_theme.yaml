@@ -1,0 +1,25 @@
+- id: set_theme
+  alias: Set Theme
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: input_boolean.daylight
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'on'
+      sequence:
+      - service: frontend.set_theme
+        data:
+          name: clear
+    - conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+      sequence:
+      - service: frontend.set_theme
+        data:
+          name: midnight-remake
