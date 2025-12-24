@@ -8,6 +8,7 @@ tts/
 .uuid
 www/community/
 alexa_media.amazon@themamo.com.pickle
+.ha_run.lock
 
 # Ignore secrets file
 secrets.yaml
