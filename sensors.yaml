@@ -2,21 +2,21 @@
   display_options:
     - 'time'
 
-- platform: template
-  sensors:
-    curl_resp:
-      friendly_name: "Gandi Curl Response"
-      value_template: "200"
-      attribute_templates:
-        message: ""
+# - platform: template
+#   sensors:
+#     curl_resp:
+#       friendly_name: "Gandi Curl Response"
+#       value_template: "200"
+#       attribute_templates:
+#         message: ""
 
-- platform: template
-  sensors:
-    pihole_disable_hour:
-      value_template: '{{ states("input_number.disable_pihole_duration_hours") | round(0) }}'
-    pihole_disable_minutes:
-      value_template: '{{ states("input_number.disable_pihole_duration_mins") | round(0) }}'
-    pihole_disable_seconds:
-      value_template: '{{ states("input_number.disable_pihole_duration_sec") | round(0) }}'
-    pihole_disable_time:
-      value_template: '{% if states("sensor.pihole_disable_hour") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_hour.state }}:{% if states("sensor.pihole_disable_minutes") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_minutes.state }}:{% if states("sensor.pihole_disable_seconds") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_seconds.state }}'
+# - platform: template
+#   sensors:
+#     pihole_disable_hour:
+#       value_template: '{{ states("input_number.disable_pihole_duration_hours") | round(0) }}'
+#     pihole_disable_minutes:
+#       value_template: '{{ states("input_number.disable_pihole_duration_mins") | round(0) }}'
+#     pihole_disable_seconds:
+#       value_template: '{{ states("input_number.disable_pihole_duration_sec") | round(0) }}'
+#     pihole_disable_time:
+#       value_template: '{% if states("sensor.pihole_disable_hour") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_hour.state }}:{% if states("sensor.pihole_disable_minutes") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_minutes.state }}:{% if states("sensor.pihole_disable_seconds") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_seconds.state }}'

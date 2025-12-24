@@ -1,0 +1,30 @@
+sensor:
+  - default_entity_id: sensor.pihole_disable_hour
+    state: '{{ states("input_number.disable_pihole_duration_hours") | round(0) }}'
+    name: pihole_disable_hour
+
+sensor:
+  - default_entity_id: sensor.pihole_disable_minutes
+    state: '{{ states("input_number.disable_pihole_duration_mins") | round(0) }}'
+    name: pihole_disable_minutes
+
+sensor:
+  - default_entity_id: sensor.pihole_disable_seconds
+    state: '{{ states("input_number.disable_pihole_duration_sec") | round(0) }}'
+    name: pihole_disable_seconds
+
+sensor:
+  - default_entity_id: sensor.pihole_disable_time
+    state: '{% if states("sensor.pihole_disable_hour") | length == 1 %}0{% endif %}{{
+      states.sensor.pihole_disable_hour.state }}:{% if states("sensor.pihole_disable_minutes")
+      | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_minutes.state }}:{%
+      if states("sensor.pihole_disable_seconds") | length == 1 %}0{% endif %}{{ states.sensor.pihole_disable_seconds.state
+      }}'
+    name: pihole_disable_time
+
+sensor:
+  - default_entity_id: sensor.curl_resp
+    attributes:
+      message: ''
+    name: Gandi Curl Response
+    state: '200'
