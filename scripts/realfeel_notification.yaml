@@ -1,8 +1,9 @@
 realfeel_notification:
   sequence:
     - alias: Real Feel Temp Alexa
-      service: notify.alexa_media_last_called
+      service: notify.alexa_media
       data_template:
         message: "Currently the real feel is {{ states('sensor.openweathermap_feels_like_temperature') | round(0) }} degrees"
+        target: media_player.bedroom_dot
         data:
           type: tts
