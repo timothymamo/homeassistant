@@ -1,0 +1,20 @@
+- id: office_on_turn_on_office_lights_on
+  alias: 'Office On - Turn ON Office Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.office
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.daylight
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.no_one_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.asleep
+        state: 'off'
+  action:
+    - service: script.turn_on_office

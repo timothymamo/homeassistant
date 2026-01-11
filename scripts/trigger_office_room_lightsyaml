@@ -1,0 +1,19 @@
+turn_on_office:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.office_light_override
+      state: 'off'
+    - service: light.turn_on
+      entity_id: light.office_lights
+      data_template:
+        brightness: "{{ brightness | default(255) }}"
+        rgb_color: "{{ color_temp | default([255,162, 76]) }}" # 389
+        transition: "{{ transition | default(0.4) }}"
+
+turn_off_office:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.office_light_override
+      state: 'off'
+    - service: light.turn_off
+      entity_id: light.office_lights

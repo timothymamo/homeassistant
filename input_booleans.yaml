@@ -30,6 +30,10 @@ storage:
   name: "Storage Motion Sensor"
   icon: mdi:motion-sensor
 
+office:
+  name: "Office Motion Sensor"
+  icon: mdi:motion-sensor
+
 no_one_home:
   name: "No One Home"
   icon: mdi:home-remove-outline

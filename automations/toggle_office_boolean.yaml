@@ -1,0 +1,19 @@
+- id: binary_sensor_office_on
+  alias: 'Binary Sensor Office ON'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_office_stairs_occupancy
+      to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.office
+
+- id: binary_sensor_kitchen_off
+  alias: 'Binary Sensor Kitchen OFF'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_office_stairs_occupancy
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.office
