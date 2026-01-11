@@ -3,6 +3,8 @@ all_lights:
   entities:
     - light.dining_1
     - light.dining_2
+    - light.office_stairs
+    - light.office_printer
     - light.kitchen
     - light.hallway
     - light.bedroom

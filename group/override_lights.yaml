@@ -2,6 +2,7 @@ override_lights:
   name: Override Lights
   entities:
     - input_boolean.dining_light_override
+    - input_boolean.office_light_override
     - input_boolean.kitchen_light_override
     - input_boolean.entrance_light_override
     - input_boolean.living_light_override

@@ -11,6 +11,12 @@ entity_config:
   light.dining_room:
     name: 'Dining Room'
     display_categories: 'LIGHT'
+  group.office_room:
+    name: 'Office Room Group'
+    display_categories: 'LIGHT'
+  light.office_room:
+    name: 'Office Room'
+    display_categories: 'LIGHT'
   group.entrance:
     name: 'Entrance'
     display_categories: 'Light'

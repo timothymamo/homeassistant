@@ -58,6 +58,10 @@ dining_light_override:
   name: "Dining Room Light Override"
   icon: mdi:alarm-off
 
+office_light_override:
+  name: "Office Room Light Override"
+  icon: mdi:alarm-off
+
 kitchen_light_override:
   name: "Kitchen Light Override"
   icon: mdi:alarm-off

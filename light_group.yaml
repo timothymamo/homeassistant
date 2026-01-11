@@ -3,3 +3,9 @@
   entities:
     - light.dining_1
     - light.dining_2
+
+- platform: group
+  name: Office Room
+  entities:
+    - light.office_stairs
+    - light.office_printer

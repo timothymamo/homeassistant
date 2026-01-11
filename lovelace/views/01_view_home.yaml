@@ -8,6 +8,7 @@ cards:
   - type: entities
     entities:
       - light.dining_room
+      - light.office_lights
       - light.bedroom
       - light.hallway
       - light.kitchen

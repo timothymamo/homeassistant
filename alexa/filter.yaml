@@ -22,6 +22,8 @@ filter:
     - light.hallway
     - light.dining_1
     - light.dining_2
+    - light.office_printer
+    - light.office_stairs
     - light.rwl021_6
     - media_player.tv
     - media_player.everywhere

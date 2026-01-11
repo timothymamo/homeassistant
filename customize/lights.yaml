@@ -3,6 +3,10 @@ light.dining_1:
   friendly_name: Dining1
 light.dining_2:
   friendly_name: Dining2
+light.office_stairs:
+  friendly_name: Office Stairs
+light.office_printer:
+  friendly_name: Office Printer
 light.bedroom:
   friendly_name: Bedroom
 light.hallway:
