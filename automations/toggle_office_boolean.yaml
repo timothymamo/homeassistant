@@ -8,7 +8,7 @@
     - service: homeassistant.turn_on
       entity_id: input_boolean.office
 
-- id: binary_sensor_kitchen_off
+- id: binary_sensor_office_off
   alias: 'Binary Sensor Kitchen OFF'
   trigger:
     - platform: state
