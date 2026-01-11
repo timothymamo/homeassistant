@@ -5,7 +5,7 @@
     - light.dining_2
 
 - platform: group
-  name: Office Room
+  name: Office Lights
   entities:
     - light.office_stairs
     - light.office_printer
