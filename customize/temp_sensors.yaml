@@ -6,6 +6,6 @@ sensor.motion_sensor_hallway:
 sensor.motion_sensor_kitchen:
   friendly_name: Temp Sensor Kitchen
 sensor.motion_sensor_office_stairs:
-  friendly_name: Temp Sensor Office Stairs
+  friendly_name: Temp Sensor Office
 sensor.motion_sensor_top_stairs:
   friendly_name: Temp Sensor Top Stairs
