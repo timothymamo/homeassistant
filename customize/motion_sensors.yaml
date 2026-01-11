@@ -5,7 +5,7 @@ binary_sensor.motion_sensor_hallway:
   friendly_name: Motion Sensor Hallway
 binary_sensor.motion_sensor_kitchen_occupancy:
   friendly_name: Motion Sensor Kitchen
-binary_sensor.motion_sensor_office_stairs:
+binary_sensor.motion_sensor_office_stairs_occupancy:
   friendly_name: Motion Sensor Office Stairs
 binary_sensor.motion_sensor_top_stairs:
   friendly_name: Motion Sensor Top Stairs
