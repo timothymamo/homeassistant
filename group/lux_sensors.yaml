@@ -4,5 +4,5 @@ lux_sensors:
     - sensor.motion_sensor_bottom_stairs_illuminance
     - sensor.motion_sensor_top_stairs_illuminance
     - sensor.motion_sensor_kitchen_illuminance
-    - sensor.motion_sensor_storage_illuminance
+    - sensor.motion_sensor_office_stairs_illuminance
     - sensor.motion_sensor_hallway_illuminance

@@ -4,7 +4,7 @@ motion_sensors:
     - binary_sensor.motion_sensor_bottom_stairs_occupancy
     - binary_sensor.motion_sensor_top_stairs_occupancy
     - binary_sensor.motion_sensor_kitchen_occupancy
-    - binary_sensor.motion_sensor_storage_occupancy
+    - binary_sensor.motion_sensor_office_stairs_occupancy
     - binary_sensor.motion_sensor_hallway_occupancy
     - binary_sensor.magnet_sensor_entrance
     - binary_sensor.magnet_sensor_storage

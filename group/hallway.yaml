@@ -8,11 +8,10 @@ hallway_sensors:
   name: Hallway Entities
   entities:
     - sensor.motion_sensor_hallway_illuminance
-    - sensor.motion_sensor_storage_illuminance
+    - sensor.motion_sensor_office_stairs_illuminance
     - sensor.motion_sensor_hallway_temperature
-    - sensor.motion_sensor_storage_temperature
+    - sensor.motion_sensor_office_stairs_temperature
     - binary_sensor.motion_sensor_hallway_occupancy
-    - binary_sensor.motion_sensor_storage_occupancy
     - binary_sensor.magnet_sensor_storage
     - input_boolean.hallway
     - input_boolean.storage
