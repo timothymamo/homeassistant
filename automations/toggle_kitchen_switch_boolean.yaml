@@ -1,5 +1,5 @@
-- id: toggle_kitchen_switch_boolean_when_wall_switch_triggers
-  alias: Kitchen Switch On
+- id: toggle_kitchen_lights_when_wall_switch_triggers
+  alias: Kitchen Switch On Kitchen Lights On
   description: ""
   triggers:
     - event_type: zha_event
