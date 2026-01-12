@@ -10,7 +10,7 @@ turn_on_office:
       entity_id: light.office_lights
       data_template:
         brightness: "{{ brightness | default(255) }}"
-        rgb_color: "{{ color_temp | default([255,169, 92]) }}" # 389
+        rgb_color: "{{ color_temp | default([255,197,150]) }}" # 389
         transition: "{{ transition | default(0.4) }}"
 
 turn_off_office:
