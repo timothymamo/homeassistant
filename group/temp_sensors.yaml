@@ -5,4 +5,5 @@ temp_sensors:
     - sensor.motion_sensor_top_stairs_temperature
     - sensor.motion_sensor_kitchen_temperature
     - sensor.motion_sensor_office_stairs_temperature
+    - sensor.motion_sensor_office_printer_temperature
     - sensor.motion_sensor_hallway_temperature

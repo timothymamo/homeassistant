@@ -4,6 +4,9 @@
     - platform: state
       entity_id: binary_sensor.motion_sensor_office_stairs_occupancy
       to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_office_printer_occupancy
+      to: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: input_boolean.office
@@ -14,6 +17,16 @@
     - platform: state
       entity_id: binary_sensor.motion_sensor_office_stairs_occupancy
       to: 'off'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_office_printer_occupancy
+      to: 'off'
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.motion_sensor_office_stairs_occupancy
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.motion_sensor_office_printer_occupancy
+      state: 'off'
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.office

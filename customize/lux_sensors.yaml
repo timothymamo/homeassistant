@@ -1,11 +1,13 @@
 # Lux Sensors
-sensor.motion_sensor_bottom_stairs_2:
+sensor.motion_sensor_bottom_stairs_illumination:
   friendly_name: Lux Sensor Bottom Stairs
-sensor.motion_sensor_hallway_2:
+sensor.motion_sensor_hallway_illumination:
   friendly_name: Lux Sensor Hallway
-sensor.motion_sensor_kitchen_2:
+sensor.motion_sensor_kitchen_illumination:
   friendly_name: Lux Sensor Kitchen
-sensor.motion_sensor_office_stairs_2:
+sensor.motion_sensor_office_stairs_illumination:
   friendly_name: Lux Sensor Office Stairs
-sensor.motion_sensor_top_stairs_2:
+sensor.motion_sensor_office_printer_illumination:
+  friendly_name: Lux Sensor Office Printer
+sensor.motion_sensor_top_stairs_illumination:
   friendly_name: Lux Sensor Top Stairs
