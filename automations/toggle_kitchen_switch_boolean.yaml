@@ -19,4 +19,4 @@
       trigger: event
   action:
     - service: homeassistant.toggle
-      entity_id: input_boolean.kitchen_wall_switch
+      entity_id: light.kitchen
