@@ -12,7 +12,7 @@
       entity_id: input_boolean.office
 
 - id: binary_sensor_office_off
-  alias: 'Binary Sensor Kitchen OFF'
+  alias: 'Binary Sensor Office OFF'
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_sensor_office_stairs_occupancy
