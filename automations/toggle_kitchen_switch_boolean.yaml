@@ -1,0 +1,22 @@
+- id: toggle_kitchen_switch_boolean_when_wall_switch_triggers
+  alias: Kitchen Switch On
+  description: ""
+  triggers:
+    - event_type: zha_event
+      event_data:
+        device_ieee: 00:17:88:01:0e:7b:25:c3
+        command: "on"
+      trigger: event
+    - event_type: zha_event
+      event_data:
+        device_ieee: 00:17:88:01:0e:7b:25:c3
+        command: "left_long_release"
+      trigger: event
+    - event_type: zha_event
+      event_data:
+        device_ieee: 00:17:88:01:0e:7b:25:c3
+        command: "off_with_effect"
+      trigger: event
+  action:
+    - service: homeassistant.toggle
+      entity_id: input_boolean.kitchen_wall_switch

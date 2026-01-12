@@ -26,6 +26,10 @@ kitchen:
   name: "Kitchen Motion Sesnor"
   icon: mdi:motion-sensor
 
+kitchen_wall_switch:
+  name: "Kitchen Wall Switch"
+  icon: mdi:motion-sensor
+
 storage:
   name: "Storage Motion Sensor"
   icon: mdi:motion-sensor
