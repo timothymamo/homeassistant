@@ -1,22 +1,22 @@
-- id: toggle_kitchen_lights_when_wall_switch_triggers
-  alias: Kitchen Switch Toggle Kitchen Lights Toggle
+- id: toggle_entrance_lights_when_wall_switch_triggers
+  alias: Entrance Switch Toggle Entrance Lights Toggle
   description: ""
   triggers:
     - event_type: zha_event
       event_data:
-        device_ieee: 00:17:88:01:0e:7b:25:c3
+        device_ieee: 00:17:88:01:0e:7b:25:c7
         command: "on"
       trigger: event
     - event_type: zha_event
       event_data:
-        device_ieee: 00:17:88:01:0e:7b:25:c3
+        device_ieee: 00:17:88:01:0e:7b:25:c7
         command: "left_long_release"
       trigger: event
     - event_type: zha_event
       event_data:
-        device_ieee: 00:17:88:01:0e:7b:25:c3
+        device_ieee: 00:17:88:01:0e:7b:25:c7
         command: "off_with_effect"
       trigger: event
   action:
     - service: homeassistant.toggle
-      entity_id: light.kitchen
+      entity_id: light.entrance

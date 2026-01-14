@@ -17,6 +17,7 @@ presence_booleans:
     - input_boolean.hallway
     - input_boolean.kitchen
     - input_boolean.kitchen_wall_switch
+    - input_boolean.entrance_wall_switch
     - input_boolean.storage
     - input_boolean.office
     - input_boolean.tim_in_bed

@@ -18,6 +18,10 @@ entrance:
   name: "Entrance Motion Sensor"
   icon: mdi:motion-sensor
 
+entrance_wall_switch:
+  name: "Entrance Wall Switch"
+  icon: mdi:motion-sensor
+
 hallway:
   name: "Hallway Motion Sensor"
   icon: mdi:motion-sensor
