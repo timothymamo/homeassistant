@@ -1,5 +1,5 @@
-- id: office_on_turn_on_office_lights_on
-  alias: 'Office On - Turn ON Office Lights'
+- id: office_on_turn_on_office_lights
+  alias: 'Office ON - Turn ON Office Lights'
   trigger:
     - platform: state
       entity_id: input_boolean.office
@@ -18,3 +18,12 @@
         state: 'off'
   action:
     - service: script.turn_on_office
+
+- id: office_off_turn_off_office_lights
+  alias: 'Office OFF - Turn OFF Office Lights'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.office
+      to: 'off'
+  action:
+    - service: script.turn_off_office
