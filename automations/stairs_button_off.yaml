@@ -1,8 +1,8 @@
-- id: smart_button_2_off_stairs_off
+- id: stairs_button_off_stairs_off
   alias: 'Smart Button 2 OFF - Stairs OFF'
   trigger:
     - platform: state
-      entity_id: input_boolean.hue_smart_button_2
+      entity_id: input_boolean.stairs_button
       to: 'off'
   action:
     - service: script.turn_off_stairs
