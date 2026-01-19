@@ -1,5 +1,5 @@
-- id: hue_smart_button_2_toggle
-  alias: 'Hue Smart Button 2 Toggle'
+- id: stairs_button_toggle
+  alias: 'Stairs Button Toggle'
   trigger:
     - platform: event
       event_type: zha_event
@@ -15,8 +15,8 @@
     - service: homeassistant.toggle
       entity_id: input_boolean.stairs_button
 
-- id: hue_smart_button_on_stairs_light
-  alias: 'Hue Smart Button ON When Stairs Light is ON'
+- id: stairs_button_on_stairs_light
+  alias: 'Stairs Button ON When Stairs Light is ON'
   trigger:
     - platform: state
       entity_id: light.stairs
@@ -25,8 +25,8 @@
     - service: homeassistant.turn_on
       entity_id: input_boolean.stairs_button
 
-- id: hue_smart_button_off_stairs_light
-  alias: 'Hue Smart Button OFF When CStairs Light is OFF'
+- id: stairs_button_off_stairs_light
+  alias: 'Stairs Button OFF When CStairs Light is OFF'
   trigger:
     - platform: state
       entity_id: light.stairs

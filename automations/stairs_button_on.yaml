@@ -1,5 +1,5 @@
 - id: stairs_button_on_stairs_on
-  alias: 'Smart Button 2 ON - Stairs ON'
+  alias: 'Stairs Button ON - Stairs ON'
   trigger:
     - platform: state
       entity_id: input_boolean.stairs_button

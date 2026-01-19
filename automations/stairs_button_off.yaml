@@ -1,5 +1,5 @@
 - id: stairs_button_off_stairs_off
-  alias: 'Smart Button 2 OFF - Stairs OFF'
+  alias: 'Stairs Button OFF - Stairs OFF'
   trigger:
     - platform: state
       entity_id: input_boolean.stairs_button
