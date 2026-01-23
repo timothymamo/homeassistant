@@ -34,3 +34,6 @@ known_devices*
 
 # Ignore zigbee db
 zigbee.db*
+
+# Ignore backup folder
+backups/
