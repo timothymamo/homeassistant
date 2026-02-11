@@ -43,7 +43,7 @@ lovelace:
   dashboards:
     lovelace:
       mode: yaml
-      filename: /config/lovelace/views/01_view_home.yaml
+      filename: /config/lovelace/views.yaml
       title: Overview
       icon: mdi:view-dashboard
       show_in_sidebar: true
