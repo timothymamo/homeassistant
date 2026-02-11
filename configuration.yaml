@@ -34,9 +34,19 @@ logger:
       - "Template variable warning: 'hour' is undefined when rendering"
       - "Template variable warning: No first item, sequence was empty. when rendering '{{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}'"
 
+#lovelace:
+#  mode: yaml
+#  resources: !include lovelace/resources.yaml
 lovelace:
-  mode: yaml
+  resource_mode: yaml
   resources: !include lovelace/resources.yaml
+  dashboards:
+    lovelace:
+      mode: yaml
+      filename: /config/lovelace/views/01_view_home.yaml
+      title: Overview
+      icon: mdi:view-dashboard
+      show_in_sidebar: true
 
 cloud:
   alexa: !include_dir_merge_named /config/alexa/
