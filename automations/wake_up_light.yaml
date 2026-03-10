@@ -54,5 +54,5 @@
       data_template:
         transition: "{{ states.input_number.wakeup_transition.state | int * 60 }}"
         brightness: 127
-        color_temp: 389
+        color_temp_kelvin: 2732
     - delay: '01:30:00'
